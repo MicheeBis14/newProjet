@@ -1,0 +1,274 @@
+
+
+header{
+
+    position: fixed;
+    z-index: 11;
+    height: 70px;
+    width: 100%;
+    background-color: #FFF;
+    box-shadow: 1px 1px 100px rgba(0, 0, 0, .20);
+    transition: all .3s;
+    display: flex;
+
+}
+
+header.show{
+
+    height: 60px;
+    background-color: #8c0219;
+    box-shadow: 1px 3px 100px rgba(0, 0, 0, .20);
+    transition: all .3s;
+
+}
+
+.section{
+
+    position: relative;
+    height: 100%;
+    width: 100%;
+    border: 1px solid red;
+
+}
+
+/**
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * ABOUT
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * */
+
+
+.section .about{
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: calc( 100% - 30%);
+    width: 100%;
+    /*background-color: blue;*/
+
+ }
+
+
+.about .container{
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 100%;
+    width: calc(100% - 20%);
+    overflow: hidden;
+    display: flex;
+    flex-direction: rows;
+    align-items: center;
+    justify-content: center;
+    /*border: 10px solid yellow;*/
+
+}
+
+.container .groups{
+
+    flex-shrink: 1;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    margin: 0 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*border: 1px solid red;*/
+
+}
+
+.groups .groupsContainer{
+
+    position: relative;
+    height: 300px;
+    width: 100%;
+    background-color: red;
+
+}
+
+.section .about::before{
+
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) skewY(-3deg);
+    height: 100%;
+    width: 100%;
+    background-color: #000;
+
+  }
+
+  @media screen and ( max-width: 400px ){
+
+    body{
+
+        /*background-color: red;*/
+
+    }
+
+    .about .container{
+
+        flex-direction: column;
+      
+    }
+
+    .container .groups{
+        margin: 10px 0;
+    }
+
+    .groups .groupsContainer{
+
+
+
+    }
+
+  }
+
+@media screen and ( max-width: 700px ){
+
+
+    body{
+
+        /*background-color: blue;*/
+
+    }
+
+    .hamb{
+
+        position: absolute;
+        top: 50%;
+        right: 5%;
+        transform: translateY(-50%);
+        height: 50px;
+        width: 50px;
+        background-color: yellow;
+
+    }
+
+    .hamb span{
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: 3px;
+        width: 24px;
+        background-color: #000;
+        border-radius: 3px;
+        transition: all .3s;
+
+    }
+
+    .hamb span::before,
+    .hamb span::after{
+
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 3px;
+        width: 24px;
+        background-color: #000;
+        border-radius: 3px;
+        transform: translateY(-6px);
+        transition: all .3s;
+
+    }
+
+    .hamb span::after{
+        transform: translateY(6px);
+    }
+
+    /**
+     * 
+     * 
+     * 
+     * ANIME
+     * 
+     * 
+     * 
+     * */
+
+    span.visible{
+
+        background-color: transparent;
+        transition: all .3s;
+
+    }
+
+    span.visible::before{
+
+        transform: rotate(-45deg);
+        transition: all .3s;
+
+    }
+
+    span.visible::after{
+
+        transform: rotate(45deg);
+        transition: all .3s;
+
+    }
+
+    /**
+     * 
+     * 
+     * MODALE
+     * 
+     * 
+     * */
+
+    .modale{
+
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 10;
+        height: 100%;
+        width: 100%;
+        animation: modale .3s linear forwards;
+
+    }
+
+    @keyframes modale{
+
+        from{ background-color: transparent; }
+        to{ background-color: rgba(0, 0, 0, .9); }
+
+    }
+
+    .modale.hide{
+
+
+        animation: hideModale .3s linear forwards;
+
+    }
+
+    @keyframes hideModale{
+
+        from{ background-color: rgba(0, 0, 0, .9); }
+        to{ background-color: transparent; }
+
+    }
+
+}
